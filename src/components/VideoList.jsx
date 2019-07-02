@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideoList = props => {
   return (
-    <div>
+    <div className="video-list">
       <h1>
         VideoList
       </h1>
