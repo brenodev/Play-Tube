@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { List, Image, Dimmer, Loader } from "semantic-ui-react";
 import { connect } from 'react-redux'
-import { dispatch } from "rxjs/internal/observable/pairs";
 
 // CUSTON REDUCER
 import { playVideo } from '../store/actions/play-video'

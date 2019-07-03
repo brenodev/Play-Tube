@@ -9,7 +9,7 @@ const VideoPlayer = props => {
     {
       !props.video.id && (
         <Advertisement 
-        style={{'height':'555px' }}
+        style={{'height':'433px' }}
         unit='top banner'
         test='Escolha um video para reproduzir'
       />
@@ -22,10 +22,10 @@ const VideoPlayer = props => {
         <Embed 
           id={props.video.id.videoId} 
           source='youtube' 
-          placeholder='https://i.pining.com/originals/a2/81/38/a28138c18f0e24e9bab084aa97770be.jpg'
+          placeholder=''
         /> 
-        <p>{props.video.snippet.title}</p>
-        <p>{props.video.snippet.description}</p>
+        <p className='video-title'>{props.video.snippet.title}</p>
+        <p className='video-description'>{props.video.snippet.description}</p>
       </div>
       )
     }   

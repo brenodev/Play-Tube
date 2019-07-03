@@ -4,6 +4,11 @@ import { connect } from 'react-redux'
 import { searchVideo } from '../store/actions/search-video'
 
 class SearchBar extends Component {
+constructor(props){
+  super(props)
+
+  this.props.searchVideo('reactjs')
+}
 
 //pesquisa o termo e retorna o resultado
 researchTerm = e => {
