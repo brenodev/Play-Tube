@@ -4,36 +4,36 @@ import YTApi from '../../services/api'
 const API_KEY = YTApi
 
 // avisa inicio de busca do video
-export const startSearchVideo = () => {
+export const searchVideoStart = () => {
   return {
-    type: 'BUSCA_VIDEO_INICIO',
-    carregando: true,
-    erro: false
+    type: 'SEARCH_VIDEO_START',
+    loading: true,
+    error: false
   }
 }
-// quando a busca sucesso
-export const searchVideoSucess = (videos) => {
+// quando a busca retorna sucesso
+export const searchVideoSuccess = (video) => {
   return {
-    type: 'BUSCA_VIDEO_SUCESSO',
-    videos,
-    carregando: false,
-    erro: false
+    type: 'SEARCH_VIDEO_SUCCESS',
+    video,
+    loading: false,
+    error: false
   }
 }
-// quando a busca da erro
-export const searchVideoErro = () => {
+// quando a busca retorna error
+export const searchVideoError = () => {
   return {
-    type: 'BUSCA_VIDEO_ERRO',
-    carregando: false,
-    erro: true
+    type: 'SEARCH_VIDEO_ERROR',
+    loading: false,
+    error: true
   }
 }
 //buscar o video
 export const searchVideo = (term) => {
   return dispatch => {
-    dispatch(startSearchVideo())
+    dispatch(searchVideoStart())
     youtubeSearch(API_KEY, {q: term})
-    .then((data) => dispatch(searchVideoSucess(data.items))) // se deu certo carrega a lista de videos
-    .catch(() => dispatch(searchVideoErro())) // volta vazio caso dê erro 
+    .then((data) => dispatch(searchVideoSuccess(data.items))) // se deu certo carrega a lista de videos
+    .catch(() => dispatch(searchVideoError())) // se der errado volta vazio 
   }
 }
