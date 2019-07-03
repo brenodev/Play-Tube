@@ -8,6 +8,8 @@ import reducers from './reducers/index'
 const composeEnhancers = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose
 const middlewares = [ thunk, logger]
 
-const store = createStore(reducers)
+const store = createStore(reducers, composeEnhancers(
+  applyMiddleware(...middlewares)
+))
 
 export default store
