@@ -16,4 +16,5 @@
 
 .video-list {
   grid-area: video-list;
+  padding: 15px;
 }
